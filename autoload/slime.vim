@@ -315,6 +315,8 @@ function! slime#send_lines(count) abort
   silent exe 'normal! ' . a:count . 'yy'
   call slime#send(@")
   call setreg('"', rv, rt)
+
+  silent! call repeat#set("\<Plug>SlimeLineSend", v:count)
 endfunction
 
 function! slime#store_curpos()
